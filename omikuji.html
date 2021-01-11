@@ -1,0 +1,84 @@
+﻿<html>
+<head>
+    <link rel="icon" type="image/png" href="icondaikiti.png">
+  <title>おみくじ</title>
+  <script>
+    var picts = ["daikiti.png", "tyuukiti.png", "syoukiti.png", "kiti.png", "kyou.png"];
+    function mikujidasu(){
+      return (Math.floor(Math.random() * 5)) + 1;
+    }
+    function mikuji(){
+      var i;
+      var hyouji = document.getElementById("hyouji");
+      hyouji.innerHTML="";
+      var imgmikuji = document.createElement("img");
+      imgmikuji.src = picts[mikujidasu() - 1];
+      var audio = new Audio("ding.wav");
+                audio.play();
+      hyouji.appendChild(imgmikuji);
+      var msgt = document.getElementById("msg");
+      var msgtype = (Math.floor(Math.random() * 15)) + 1;
+      if (msgtype == 1){
+        msgt.innerHTML = ("探し物は、意外な所にあるよ。");
+      }else if (msgtype == 2){
+        msgt.innerHTML = ("ラーメンを食べるといいよ。");
+      }else if (msgtype == 3){
+        msgt.innerHTML = ("買い物に行くといいことがあるかも。");
+      }else if (msgtype == 4){
+        msgt.innerHTML = ("思い切った行動が良いことにつながるかもしれない。");
+      }else if (msgtype == 5){
+        msgt.innerHTML = ("外に出るとう〇こを踏むかも知れないので注意しよう。");
+      }else if (msgtype == 6){
+        msgt.innerHTML = ("10円を拾うかも。");
+      }else if (msgtype == 7){
+        msgt.innerHTML = ("いまやっている端末を終了しよう。");
+      }else if (msgtype == 8){
+        msgt.innerHTML = ("今日のごはんはカレーかもね。");
+      }else if (msgtype == 9){
+        msgt.innerHTML = ("宝くじを買っても多分当らない。");
+      }else if (msgtype == 10){
+        msgt.innerHTML = ("ご飯をたくさん食べよう。");
+      }else if (msgtype == 11){
+        msgt.innerHTML = ("石を家まで運べたらラッキー。");
+      }else if (msgtype == 12){
+        msgt.innerHTML = ("明日は晴れかもしれないね。");
+      }else if (msgtype == 13){
+        msgt.innerHTML = ("風邪にならないように注意。");
+      }else if (msgtype == 14){
+        msgt.innerHTML = ("求めている物は上の方にある");
+      }else if (msgtype == 15){
+        msgt.innerHTML = ("魚料理がおすすめ。");
+      }
+    }
+</script>
+<style>
+/**/
+.btn-square {
+  display: inline-block;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  background: #a7d866;/*ボタン色*/
+  color: #FFF;
+  border-bottom: solid 4px #629577;
+  border-radius: 3px;
+}
+.btn-square:active {
+  /*ボタンを押したとき*/
+  -webkit-transform: translateY(4px);
+  transform: translateY(4px);/*下に動く*/
+  border-bottom: none;/*線を消す*/
+}
+
+</style>
+</head>
+<body background="haikei.gif">
+  <h2><font color="green">おみくじ</font></h2>
+  <p>[おみくじを引く]をおしてね</p>
+  <hr>
+  <p></p><button id="stt" onclick="mikuji();" class="btn-square">おみくじを引く</button>
+  <br>
+  <br>
+  <div id="hyouji"></div>
+  <br>
+  <div id="msg"></div>
+</body></html>

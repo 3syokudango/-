@@ -1,2 +1,2 @@
-#OMIKUJI
+# OMIKUJI
 おみくじそれだけ
